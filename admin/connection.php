@@ -1,13 +1,14 @@
 <?php
-$host = getenv("DB_HOST") ?: "mysql-db";  // mysql-db = Render MySQL service name
-$db   = getenv("DB_NAME") ?: "food_delivery";
-$user = getenv("DB_USER") ?: "fooduser";
-$pass = getenv("DB_PASS") ?: "foodpass123";
+$host = getenv('DB_HOST');
+$db   = getenv('DB_DATABASE');
+$user = getenv('DB_USERNAME');
+$pass = getenv('DB_PASSWORD');
+$port = getenv('DB_PORT');
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
+$conn = new mysqli($host, $user, $pass, $db, (int)$port);
+
+if ($conn->connect_error) {
+    die("DB Connection failed: " . $conn->connect_error);
 }
+echo "✅ Connected to Clever Cloud MySQL!";
 ?>
