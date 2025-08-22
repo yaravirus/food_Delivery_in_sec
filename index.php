@@ -2,9 +2,9 @@
 // include "header.php";
 // include "slider.php";
 // include "../admin/connection.php"; 
-include __DIR__ . "/header.php";
-include __DIR__ . "/slider.php";
-include __DIR__ . "/../admin/connection.php";
+include __DIR__ . "/user/header.php";
+include __DIR__ . "/user/slider.php";
+include __DIR__ . "/admin/connection.php";
 ?>
 <title>Home Page</title>
 
@@ -62,7 +62,7 @@ include __DIR__ . "/../admin/connection.php";
 </section>
 
 <?php 
-include  __DIR__ ."delivery_section.php";
-include  __DIR__ ."service_section.php";
-include  __DIR__ ."footer.php";
+include "delivery_section.php";
+include "service_section.php";
+include "footer.php";
 ?>
