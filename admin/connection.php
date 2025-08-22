@@ -1,9 +1,13 @@
 <?php
-$link = mysqli_connect("localhost", "root", "");
-if (!$link) {
-    die("Connection failed: " . mysqli_connect_error());
+$host = getenv("DB_HOST") ?: "mysql-db";  // mysql-db is the service name on Render
+$db   = getenv("DB_NAME") ?: "food_delivery";
+$user = getenv("DB_USER") ?: "fooduser";
+$pass = getenv("DB_PASS") ?: "foodpass";
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
-
-mysqli_select_db($link, "food_ordering_system") or die("Database not found");
-
 ?>
