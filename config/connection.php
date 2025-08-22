@@ -1,13 +1,12 @@
 <?php
-$host = getenv('DB_HOST');
-$user = getenv('DB_USERNAME');
-$pass = getenv('DB_PASSWORD');
-$db   = getenv('DB_DATABASE');
-$port = getenv('DB_PORT');
+$host = "localhost";  
+$user = "root";  
+$pass = "";           // or your root password  
+$db   = "food_ordering_system";
 
-$link = mysqli_connect($host, $user, $pass, $db, $port);
+$link = mysqli_connect($host, $user, $pass, $db);
 
 if (!$link) {
-    die("DB Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
