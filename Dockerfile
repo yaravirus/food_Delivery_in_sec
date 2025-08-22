@@ -1,21 +1,20 @@
-# Use official PHP + Apache image
+# Dockerfile (at repo root)
 FROM php:8.2-apache
 
-# Enable Apache rewrite (needed for Laravel/Symfony/WordPress pretty URLs)
+# Needed for MySQL
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Enable Apache rewrite (if you use .htaccess / pretty URLs)
 RUN a2enmod rewrite
 
-# Copy app files into the web root
-COPY . /var/www/html/
+# (Optional) set DocumentRoot to /var/www/html/public
+# RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
-# Set working directory
-WORKDIR /var/www/html/
+# Copy your app
+COPY . /var/www/html
 
-# If using Composer (for frameworks)
-RUN apt-get update && apt-get install -y unzip git \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer install --no-dev --optimize-autoloader || true
+# (Optional) permissions if you write to storage/uploads
+# RUN chown -R www-data:www-data /var/www/html
 
-# Expose port 80 for Render
+# Expose the port your app listens on
 EXPOSE 80
-
-# Default CMD (Apache is already configured)
