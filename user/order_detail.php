@@ -6,7 +6,7 @@ if(!isset($_SESSION)){
 ?>
 
 <?php include "header.php";?>
-<?php include "../admin/connection.php";
+<?php include("../connection.php");
 $id = $_GET["id"];
 
 $full_name = "";

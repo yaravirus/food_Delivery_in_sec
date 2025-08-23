@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php include "header.php";
-include "../admin/connection.php";
+include("../connection.php");
 ?>
 <?php
         $firstname="";

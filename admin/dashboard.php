@@ -1,7 +1,7 @@
 <?php
         session_start();
         include("header.php");
-        include("connection.php");
+        include("../connection.php");
 ?>
 <div class="breadcrumbs">
     <div class="col-sm-4">

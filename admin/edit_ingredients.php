@@ -1,5 +1,5 @@
 <?php
-        include("connection.php");
+        include("../connection.php");
         include("header.php");
         $id=$_GET["id"];
         $categories_name="";

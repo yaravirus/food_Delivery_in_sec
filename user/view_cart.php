@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "header.php";
-include "../admin/connection.php"; 
+include("../connection.php");
 ?>
 <title>Viewcart</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">

@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include "../admin/connection.php";
+include("../connection.php");
 
 // Get parameters
 $id = intval($_GET["id"]);

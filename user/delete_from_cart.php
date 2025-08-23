@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../admin/connection.php";
+include("../connection.php");
 $tb_id=$_GET["tb_id"];
 $check_product_no_session=check_product_no_session_multiple($tb_id);  //this is for get this product session id so we can update it.
 $sessionid = $check_product_no_session;

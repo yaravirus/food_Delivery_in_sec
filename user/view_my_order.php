@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 
 ?>
 <?php 
-include "../admin/connection.php";
+include("../connection.php");
 include "header.php";
 ?>
 <title>My Order</title>

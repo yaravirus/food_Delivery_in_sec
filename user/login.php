@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include "../admin/connection.php";
+include("../connection.php");
 include "header.php";
 ?>
 

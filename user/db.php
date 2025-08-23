@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../admin/connection.php";  // adjust path to your DB connection
+include("../connection.php");  // adjust path to your DB connection
 
 if (isset($_GET['id']) && isset($_GET['qty'])) {
     $id  = intval($_GET['id']);

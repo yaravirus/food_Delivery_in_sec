@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "header.php";?>
-<?php include "../admin/connection.php";
+<?php include("../connection.php");
 $_SESSION['address_verify']="yes";
 ?>
 
