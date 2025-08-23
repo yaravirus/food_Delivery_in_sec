@@ -1,16 +1,20 @@
 <?php
-$host = "localhost";   // MySQL is running locally
-$user = "root";        // default XAMPP user
-$pass = "";            // default XAMPP password is empty (change if you set one)
-$db   = "food_ordering_system"; // your database name
+// Start session if needed
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
 
-// Create connection
-$link = mysqli_connect($host, $user, $pass, $db);
+// Database configuration
+$host = "sql109.infinityfree.com";   // Replace with your InfinityFree DB host
+$user = "if0_39736894";         // Your DB username
+$pass = "Iu1XlZBT9GS";         // Your DB password
+$db   = "if0_39736894_XXX";         // Your database name
+
+// Connect to MySQL
+$conn = mysqli_connect($host, $user, $pass, $db);
 
 // Check connection
-if (!$link) {
-    die("❌ Connection failed: " . mysqli_connect_error());
-} else {
-    echo "✅ Connected successfully to database: " . $db;
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
