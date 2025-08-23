@@ -1,20 +1,21 @@
-# Dockerfile (at repo root)
 FROM php:8.2-apache
 
-# Needed for MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Install dependencies + MySQL extensions
+RUN apt-get update && docker-php-ext-install mysqli pdo pdo_mysql
 
-# Enable Apache rewrite (if you use .htaccess / pretty URLs)
+# Enable Apache rewrite
 RUN a2enmod rewrite
 
-# (Optional) set DocumentRoot to /var/www/html/public
-# RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
+# Set working directory
+WORKDIR /var/www/html
 
-# Copy your app
+# Copy application
 COPY . /var/www/html
 
-# (Optional) permissions if you write to storage/uploads
+# Set permissions (optional if you upload files)
 # RUN chown -R www-data:www-data /var/www/html
 
-# Expose the port your app listens on
+# Expose HTTP port
 EXPOSE 80
+
+CMD ["apache2-foreground"]
