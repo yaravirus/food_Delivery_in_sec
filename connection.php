@@ -11,10 +11,10 @@ $pass = "Iu1XlZBT9GS";         // Your DB password
 $db   = "if0_39736894_XXX";         // Your database name
 
 // Connect to MySQL
-$conn = mysqli_connect($host, $user, $pass, $db);
+$link = mysqli_connect($host, $user, $pass, $db);
 
 // Check connection
-if (!$conn) {
+if (!$link) {
     die("Connection failed: " . mysqli_connect_error());
 }
 ?>
